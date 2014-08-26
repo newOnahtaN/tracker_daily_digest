@@ -3,13 +3,23 @@ class Jobs::DailyDigest
   include Sidekiq::Worker
 
   def perform person
-    DailyDigestMailer.digest(person, stories: stories(person)).deliver
+    DailyDigestHelp.new(person).perform
   end
 
   private
 
-  def stories person
-    TrackerDailyDigest::Api.stories person.initials
+  class DailyDigestHelp < Struct.new(:person)
+
+
+    def perform
+      DailyDigestMailer.digest(person, stories: stories) if stories.any?
+    end
+
+    def stories
+      @stories ||= TrackerDailyDigest::Api.stories person.initials
+    end
+
+
   end
 
 
