@@ -9,11 +9,13 @@ gem 'rails', '4.1.5'
 group :development do
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
-  gem 'sinatra'
 end
 
-
 gem 'pg'
+
+#for sidkeiq
+gem 'sinatra'
+
 gem 'rest-client'
 
 # Use SCSS for stylesheets
