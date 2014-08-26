@@ -1,12 +1,15 @@
-<p>
+<p style="font-family: Arial, Helvetica, sans-serif;font-size: 12px;">
 Hi <%= @person.name %>.  Please accept or reject the following Pivotal Tracker items.
 </p>
 
-<ul>
+<ul style="font-family: Arial, Helvetica, sans-serif;font-size: 12px;">
   <% @stories.each do |story| %>
     <li>
-      <a href="<%=story.url%>"><%= story.name %> </li>
+      <a href="<%=story.url%>"><%= story.name %></a></li>
     </li>
   <% end %>
 </ul>
 
+<p style="font-family: Arial, Helvetica, sans-serif;font-size: 10px;">
+  To unsubscribe from this email, just accept or reject all delivered pivotal tracker items.
+</p>

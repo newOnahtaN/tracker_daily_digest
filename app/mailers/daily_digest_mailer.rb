@@ -11,7 +11,7 @@ class DailyDigestMailer < ActionMailer::Base
     @person = person
 
     mail to: person.email,
-      subject: "Pivotal Tracker stories waiting for you to Accept or Reject"
+      subject: "Pivotal Tracker items waiting on you to Accept or Reject"
 
   end
 
