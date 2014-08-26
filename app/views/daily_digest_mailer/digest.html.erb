@@ -1,0 +1,12 @@
+<p>
+Hi <%= @person.name %>.  The following stories are waiting on your review.
+</p>
+
+<ul>
+  <% @stories.each do |story| %>
+    <li>
+      <a href="<%=story.url%>"><%= story.name %> </li>
+    </li>
+  <% end %>
+</ul>
+
