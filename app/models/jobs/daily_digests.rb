@@ -5,7 +5,7 @@ class Jobs::DailyDigests
 
   def perform
     memberships.each do |membership|
-      Jobs::DailyDigest.perform_async(membership.person)
+      Jobs::DailyDigest.perform_async(membership.person.attributes)
     end
   end
 

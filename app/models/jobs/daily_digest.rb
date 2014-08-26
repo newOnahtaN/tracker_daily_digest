@@ -3,7 +3,7 @@ class Jobs::DailyDigest
   include Sidekiq::Worker
 
   def perform person
-    DailyDigestHelp.new(person).perform
+    DailyDigestHelp.new(OpenStruct.new(person)).perform
   end
 
   private
