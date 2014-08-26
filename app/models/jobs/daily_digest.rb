@@ -12,7 +12,7 @@ class Jobs::DailyDigest
 
 
     def perform
-      DailyDigestMailer.digest(person, stories: stories) if stories.any?
+      DailyDigestMailer.digest(person, stories: stories).deliver if stories.any?
     end
 
     def stories

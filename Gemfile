@@ -6,9 +6,11 @@ ruby '2.1.2'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.5'
 
-group :development do
+group :development, :test do
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
+  gem 'pry-rails'
+  gem 'pry-nav'
 end
 
 gem 'pg'
