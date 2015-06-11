@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.1.2'
+ruby '2.1.5'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -42,6 +42,8 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 
 gem 'tracker_api'
+gem 'pivotal-tracker'
+gem 'heroku-api'
 
 gem 'sidekiq'
 
