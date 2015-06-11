@@ -1,7 +1,7 @@
 module DeliveredStoriesReport
 
   def get_time_of_last_deployment
-    unless (app_name = ENV["HEROKU_APP_NAME"]).nil?
+    unless (app_name = ENV["MAIN_APP_NAME"]).nil?
       require 'heroku-api'
 
       heroku  = Heroku::API.new(:api_key => ENV["HEROKU_API_KEY"])
