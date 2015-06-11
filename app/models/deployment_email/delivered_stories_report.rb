@@ -7,7 +7,15 @@ module DeliveredStoriesReport
       heroku  = Heroku::API.new(:api_key => ENV["HEROKU_API_KEY"])
       heroku.get_releases(app_name).body.last['created_at']
     else
-      2.day.ago.to_s
+      dummy_date = 'Jun 8 15:29:25 EDT 2015'
+    end
+  end
+
+  def get_pivotal_api_token
+    unless (pivotal_api_token = ENV['TRACKER_TOKEN']).nil?
+      pivotal_api_token
+    else
+      dummy_api_token = '8b1e5decd74a12e824ae003febcb10ac'
     end
   end
 

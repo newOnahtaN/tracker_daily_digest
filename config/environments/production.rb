@@ -92,8 +92,4 @@ Rails.application.configure do
     :authentication => 'login' # Mandrill supports 'plain' or 'login'
   }
 
-
-
-
-
 end
