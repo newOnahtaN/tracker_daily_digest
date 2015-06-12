@@ -1,5 +1,5 @@
 task :email_delivered_stories => :environment do
-  require 'deployment_email/delivered_stories_report'
+  require 'deployment_email/delivered_stories_report.rb'
   include DeliveredStoriesReport
   puts "Finding Delivered Stories"
   deployment_date = get_time_of_last_deployment
