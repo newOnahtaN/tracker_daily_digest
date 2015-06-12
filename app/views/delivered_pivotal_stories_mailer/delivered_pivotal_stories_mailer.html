@@ -137,22 +137,11 @@ p, ul, ol {
 	font-size: 14px;
 }
 
-ul li, ol li {
-	margin-left: 5px;
-	list-style-position: inside;
+ul li {
+    margin-left: 5px;
+    list-style-position: inside;
 }
-.feature {
-    list-style-image: url("<%= attachments['feature'].url %>");
-}
-.bug {
-    list-style-image: url("<%= attachments['bug'].url %>");
-}
-.chore {
-    list-style-image: url("<%= attachments['chore'].url %>");
-}
-.release {
-    list-style-image: url("<%= attachments['release'].url %>");
-}
+
 
 /* ---------------------------------------------------
 		RESPONSIVENESS
@@ -200,12 +189,20 @@ ul li, ol li {
 			<table>
 				<tr>
 					<td>
-                        <h1>Delivered Pivotal Stories Since Last Deployment</h1>
+                        <h3>Delivered Pivotal Stories Since Last Deployment on <%= @time_of_last_deployment.strftime("%m/%d/%y")%></h3>
+                        <ul>
                             <% @new_stories.each do |story| %>
-                            <li class="<%=story.story_type%>">
+                            <li style="list-style-type: none;">
+                                <%= image_tag(attachments[story.story_type].url, size: '20')%>
                                 <a href="<%=story.url%>"><%= story.name %></a>
+                                <ul>
+                                    <li style="list-style-type: none; margin-left: 50px;">
+                                        Requested by <%= story.requested_by %> on <%= story.created_at.strftime("%A, %m/%d/%y") %>
+                                    </li>
+                                </ul>
                             </li>
                             <% end %>
+                        </ul>
 					</td>
 				</tr>
 			</table>
@@ -229,7 +226,7 @@ ul li, ol li {
 				<table>
 					<tr>
 						<td align="center">
-							<p>Woo! Have a lovely day! </p>
+							<p>This message was triggered by a new deployment. Great job!</p>
 						</td>
 					</tr>
 				</table>

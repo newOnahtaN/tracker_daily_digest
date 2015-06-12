@@ -40,8 +40,8 @@ module DeliveredStoriesReport
     stories.each {|story| puts "  " + story.name}
   end
 
-  def email_report stories
-    DeliveredPivotalStoriesMailer.delivered_pivotal_stories_mailer(stories).deliver!
+  def email_report stories, deployment_date
+    DeliveredPivotalStoriesMailer.delivered_pivotal_stories_mailer(stories, deployment_date).deliver!
   end
 
 end
