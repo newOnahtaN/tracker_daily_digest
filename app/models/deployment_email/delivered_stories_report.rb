@@ -29,8 +29,10 @@ module DeliveredStoriesReport
     new_stories = []
 
     projects.each do |project|
-      puts "Gathering stories for " + project.name
-      new_stories += project.stories.all(:state => 'delivered', :modified_since => time_of_last_deployment.to_s)
+      unless ["Android APP", "IOS APP", "iOS app-BAK", "Mobile Backend"].indclude? project.name
+        puts "Gathering stories for " + project.name
+        new_stories += project.stories.all(:state => 'delivered', :modified_since => time_of_last_deployment.to_s)
+      end
     end
     new_stories
   end
